@@ -2,14 +2,13 @@ import {
   VerticalTimeline,
   VerticalTimelineElement
 } from "react-vertical-timeline-component";
-import { FiCodesandbox, FiHome } from "react-icons/fi";
+import { FiCodesandbox } from "react-icons/fi";
 import { timelines } from "./timelines";
 import "react-vertical-timeline-component/style.min.css";
 import "./App.css";
 
 const TimeLineElement = ({ title, location, description, date, id }) => (
   <VerticalTimelineElement
-    key={id}
     className="vertical-timeline-element--work"
     contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
     contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
@@ -20,6 +19,9 @@ const TimeLineElement = ({ title, location, description, date, id }) => (
     <h3 className="vertical-timeline-element-title">{title}</h3>
     <h4 className="vertical-timeline-element-subtitle">{location}</h4>
     <p>{description}</p>
+    <p>
+      <button>Button</button>
+    </p>
   </VerticalTimelineElement>
 );
 
@@ -33,7 +35,7 @@ function App() {
             location={el.location}
             description={el.description}
             date={el.date}
-            id={el.id}
+            key={el.id}
           />
         ))}
       </VerticalTimeline>
